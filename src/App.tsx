@@ -8,16 +8,16 @@ import Country from 'models/Country';
 import { Wrapper } from './App.styles';
 import Home from 'pages/Home/Home';
 import CountryDetails from 'pages/CountryDetails/CountryDetails';
-import Theme from 'enums/Theme';
+import useDarkMode from 'hooks/useDarkMode';
 
 function App() {
   const [countries, setCountries] = useState<Country[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedRegion, setSelectedRegion] = useState<string>('All');
   const [filteredCountries, setFilteredCountries] = useState<Country[]>([]);
-  const [theme, setTheme] = useState(Theme.Light);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
+  const [theme, themeToggler] = useDarkMode();
 
   useEffect(() => {
     getCountries()
@@ -45,23 +45,11 @@ function App() {
     }
   }, [countries, selectedRegion]);
 
-  const toggleTheme = (): void => {
-    if (theme === Theme.Light) {
-      setTheme(Theme.Dark);
-    } else {
-      setTheme(Theme.Light);
-    }
-  };
-
-  useEffect(() => {
-    document.body.className = theme;
-  }, [theme]);
-
   return (
     <Router>
       <Wrapper>
         <GlobalStyles />
-        <Header toggleTheme={toggleTheme} theme={theme} />
+        <Header toggleTheme={themeToggler} theme={theme} />
         <Route exact path="/">
           <Home
             searchQuery={searchQuery}

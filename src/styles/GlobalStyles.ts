@@ -3,6 +3,11 @@ import { createGlobalStyle } from 'styled-components';
 export const GlobalStyles = createGlobalStyle`
 
   :root {
+    --color-bg: hsl(0, 0%, 98%);
+    --color-text: hsl(200, 15%, 8%);
+    --color-input: hsl(0, 0%, 52%);
+    --color-elements: hsl(0, 0%, 100%);
+    --color-highlighted: #bde4ff;
     --fw-light: 300;
     --fw-semi-bold: 600;
     --fw-extra-bold: 800;
