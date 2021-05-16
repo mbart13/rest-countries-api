@@ -12,7 +12,7 @@ const CountryCard: React.FC<Country> = ({
   alpha3Code,
 }) => {
   return (
-    <Container>
+    <Container as="li">
       <Link to={`/${alpha3Code}`} style={{ textDecoration: 'none' }}>
         <FlagWrapper>
           <img src={flag} alt="" aria-hidden="true" />

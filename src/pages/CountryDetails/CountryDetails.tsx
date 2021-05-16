@@ -14,8 +14,6 @@ import {
 
 const CountryDetails: React.FC<{ countries: Country[] }> = ({ countries }) => {
   const { code } = useParams<{ code: string }>();
-  console.log(code);
-  console.log(countries);
 
   const country: Country | undefined = countries.find(
     country => country.alpha3Code === code

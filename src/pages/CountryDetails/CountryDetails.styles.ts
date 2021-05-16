@@ -41,6 +41,9 @@ export const CountryWrapper = styled.div`
 export const StyledCountryDetails = styled.div`
   padding-top: 2.75rem;
   color: var(--color-text);
+  h3 {
+    font-size: 1rem;
+  }
 
   h2 {
     font-size: 1.375rem;
@@ -59,10 +62,8 @@ export const StyledCountryDetails = styled.div`
 `;
 
 export const Flag = styled(FlagWrapper)`
-  /* max-height: unset; */
-
   @media (min-width: ${breakpoints.desktop}) {
-    /* max-height: 25rem; */
+    height: 25rem;
     margin-right: 9rem;
     flex-basis: 50%;
   }
@@ -109,4 +110,5 @@ export const BorderingCountries = styled.ul`
   gap: 0.625rem;
   padding: 0;
   margin-bottom: 0;
+  font-size: 1rem;
 `;

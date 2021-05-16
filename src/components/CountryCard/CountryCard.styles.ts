@@ -12,11 +12,9 @@ const appear = keyframes`
 `;
 
 export const Container = styled(CardWrapper)`
-  display: flex;
-  flex-direction: column;
   box-shadow: 0 0 0.4375rem 0.125rem rgba(0, 0, 0, 0.03);
   transition: transform 0.2s cubic-bezier(0.34, 2, 0.6, 1);
-  animation: ${appear} 0.3s ease;
+  animation: ${appear} 2s ease;
 
   :hover {
     cursor: pointer;
@@ -30,11 +28,11 @@ export const FlagWrapper = styled.div`
   overflow: auto;
   flex-basis: 50%;
   overflow-y: hidden;
-
+  height: 11.5625rem;
   img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
   }
 `;
 

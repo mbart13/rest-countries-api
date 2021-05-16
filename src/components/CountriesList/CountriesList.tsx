@@ -25,14 +25,14 @@ const CountriesList: React.FC<{
       country.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
   }
-  if (!countries.length && !isLoading) {
+  if (!countries.length && !isLoading && !isError) {
     return <Notification>No results found</Notification>;
   }
 
   if (isError) {
     return (
       <Notification>
-        Something went wrong. Please try to refresh the page
+        Something went wrong. Please try to refresh the page.
       </Notification>
     );
   }

@@ -6,7 +6,7 @@ export const InputWrapper = styled(CardWrapper)`
   position: relative;
   margin-bottom: 2.5rem;
 
-  @media (min-width: ${breakpoints.desktop}) {
+  @media (min-width: ${breakpoints.tablet}) {
     flex-grow: 1;
     max-width: 30rem;
     margin-bottom: 0;
