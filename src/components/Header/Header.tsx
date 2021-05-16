@@ -1,7 +1,6 @@
 import { IoMoonOutline } from 'react-icons/io5';
 import { FiSun } from 'react-icons/fi';
 import Theme from 'enums/Theme';
-import { Link } from 'react-router-dom';
 
 import {
   StyledHeader,
