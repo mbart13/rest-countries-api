@@ -21,8 +21,15 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const NoResults = styled.p`
+export const Notification = styled.p`
   text-align: center;
   font-size: 2rem;
   padding-top: 2rem;
+  color: var(--color-text);
+`;
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  padding-bottom: 2rem;
 `;

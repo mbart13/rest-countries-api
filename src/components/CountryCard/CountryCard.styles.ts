@@ -1,12 +1,22 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import CardWrapper from 'components/CardWrapper/CardWrapper';
-import { breakpoints } from 'styles/Breakpoints';
+
+const appear = keyframes`
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+`;
 
 export const Container = styled(CardWrapper)`
   display: flex;
   flex-direction: column;
   box-shadow: 0 0 0.4375rem 0.125rem rgba(0, 0, 0, 0.03);
   transition: transform 0.2s cubic-bezier(0.34, 2, 0.6, 1);
+  animation: ${appear} 0.3s ease;
 
   :hover {
     cursor: pointer;

@@ -51,6 +51,10 @@ export const StyledListItem = styled.li`
     margin-bottom: 0.5rem;
   }
 
+  :hover {
+    cursor: pointer;
+  }
+
   @media (min-width: 42.375rem) {
     font-size: 0.875rem;
   }

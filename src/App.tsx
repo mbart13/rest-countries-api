@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import { GlobalStyles } from 'styles/GlobalStyles';
 import { useState, useEffect } from 'react';
@@ -16,9 +16,19 @@ function App() {
   const [selectedRegion, setSelectedRegion] = useState<string>('All');
   const [filteredCountries, setFilteredCountries] = useState<Country[]>([]);
   const [theme, setTheme] = useState(Theme.Light);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
-    getCountries().then(data => setCountries(data));
+    getCountries()
+      .then(data => {
+        setCountries(data);
+        setIsLoading(false);
+      })
+      .catch(() => {
+        setIsLoading(false);
+        setIsError(true);
+      });
   }, []);
 
   const handleSelectedRegion = (target: any) => {
@@ -45,7 +55,6 @@ function App() {
 
   useEffect(() => {
     document.body.className = theme;
-    // localStorage.setItem('theme', theme);
   }, [theme]);
 
   return (
@@ -60,6 +69,8 @@ function App() {
             setSearchQuery={setSearchQuery}
             filteredCountries={filteredCountries}
             handleSelectedRegion={handleSelectedRegion}
+            isLoading={isLoading}
+            isError={isError}
           />
         </Route>
         <Route exact path="/:code">

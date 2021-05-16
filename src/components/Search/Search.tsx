@@ -1,48 +1,15 @@
 import { Dispatch, SetStateAction } from 'react';
 
-import styled from 'styled-components';
 import { AiOutlineSearch } from 'react-icons/ai';
-import CardWrapper from 'components/CardWrapper/CardWrapper';
-import { breakpoints } from 'styles/Breakpoints';
-
-const InputWrapper = styled(CardWrapper)`
-  position: relative;
-  margin-bottom: 2.5rem;
-
-  @media (min-width: ${breakpoints.desktop}) {
-    flex-grow: 1;
-    max-width: 30rem;
-    margin-bottom: 0;
-  }
-
-  svg {
-    position: absolute;
-    transform: translateY(100%);
-    left: 2rem;
-    color: var(--color-input);
-  }
-
-  input {
-    border: none;
-    width: 100%;
-    font-size: 0.75rem;
-    color: var(--color-input);
-    padding: 0.875rem 0 0.875rem 4.625rem;
-    outline: none;
-    background-color: var(--color-elements);
-
-    @media (min-width: 42.375rem) {
-      font-size: 0.875rem;
-    }
-  }
-`;
+import { InputWrapper } from './Search.styles';
 
 type InputProps = {
   placeholder: string;
   setSearchQuery: Dispatch<SetStateAction<string>>;
+  searchQuery: string;
 };
 
-const Search = ({ placeholder, setSearchQuery }: InputProps) => {
+const Search = ({ placeholder, setSearchQuery, searchQuery }: InputProps) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
   };
@@ -50,7 +17,12 @@ const Search = ({ placeholder, setSearchQuery }: InputProps) => {
   return (
     <InputWrapper>
       <AiOutlineSearch />
-      <input type="text" placeholder={placeholder} onChange={handleChange} />
+      <input
+        value={searchQuery}
+        type="text"
+        placeholder={placeholder}
+        onChange={handleChange}
+      />
     </InputWrapper>
   );
 };

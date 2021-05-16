@@ -13,6 +13,8 @@ type HomeProps = {
   setSearchQuery: Dispatch<SetStateAction<string>>;
   handleSelectedRegion: (target: any) => void;
   filteredCountries: Country[];
+  isLoading: boolean;
+  isError: boolean;
 };
 
 const Home: React.FC<HomeProps> = ({
@@ -21,12 +23,15 @@ const Home: React.FC<HomeProps> = ({
   setSearchQuery,
   handleSelectedRegion,
   filteredCountries,
+  isLoading,
+  isError,
 }) => {
   return (
     <main>
       <Filters>
         <Search
           setSearchQuery={setSearchQuery}
+          searchQuery={searchQuery}
           placeholder="Search for a country..."
         />
         <Select
@@ -38,6 +43,8 @@ const Home: React.FC<HomeProps> = ({
         searchQuery={searchQuery}
         selectedRegion={selectedRegion}
         countries={filteredCountries}
+        isLoading={isLoading}
+        isError={isError}
       />
     </main>
   );

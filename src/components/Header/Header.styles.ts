@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { breakpoints } from 'styles/Breakpoints';
+import { Link } from 'react-router-dom';
 
 export const StyledHeader = styled.header`
   background-color: var(--color-elements);
@@ -22,7 +23,7 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const StyledHeading = styled.h1`
+export const StyledHeading = styled(Link)`
   color: var(--color-text);
   font-weight: var(--fw-extra-bold);
   font-size: 0.875rem;

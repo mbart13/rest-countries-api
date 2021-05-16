@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { FlagWrapper } from 'components/CountryCard/CountryCard.styles';
-import Button from 'components/Button/Button';
 import { Link } from 'react-router-dom';
 import Container from 'components/Container/Container';
 import { breakpoints } from 'styles/Breakpoints';
@@ -20,10 +19,11 @@ export const StyledLink = styled(Link)`
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  transition: transform 0.2s linear;
 
-  /* :hover {
-    cursor: pointer;
-  } */
+  :hover {
+    transform: translateY(-0.3125rem);
+  }
 `;
 
 export const CountryWrapper = styled.div`
@@ -59,10 +59,10 @@ export const StyledCountryDetails = styled.div`
 `;
 
 export const Flag = styled(FlagWrapper)`
-  max-height: unset;
+  /* max-height: unset; */
 
   @media (min-width: ${breakpoints.desktop}) {
-    max-height: 25rem;
+    /* max-height: 25rem; */
     margin-right: 9rem;
     flex-basis: 50%;
   }
@@ -108,4 +108,5 @@ export const BorderingCountries = styled.ul`
   flex-wrap: wrap;
   gap: 0.625rem;
   padding: 0;
+  margin-bottom: 0;
 `;

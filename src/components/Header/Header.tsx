@@ -1,6 +1,7 @@
 import { IoMoonOutline } from 'react-icons/io5';
 import { FiSun } from 'react-icons/fi';
 import Theme from 'enums/Theme';
+import { Link } from 'react-router-dom';
 
 import {
   StyledHeader,
@@ -16,7 +17,9 @@ const Header: React.FC<{ toggleTheme: () => void; theme: string }> = ({
   return (
     <StyledHeader>
       <Wrapper>
-        <StyledHeading>Where in the world?</StyledHeading>
+        <StyledHeading to="/" style={{ textDecoration: 'none' }}>
+          Where in the world?
+        </StyledHeading>
         <ToggleButton onClick={toggleTheme}>
           {theme === Theme.Light ? <IoMoonOutline /> : <FiSun />}
           <p>{theme === Theme.Light ? 'Dark Mode' : 'Light Mode'}</p>
