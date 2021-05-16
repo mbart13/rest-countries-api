@@ -39,7 +39,7 @@ const CountryDetails: React.FC<{ countries: Country[] }> = ({ countries }) => {
               </li>
               <li>
                 <span>Population: </span>
-                {country?.population}
+                {country?.population.toLocaleString()}
               </li>
               <li>
                 <span>Region: </span>

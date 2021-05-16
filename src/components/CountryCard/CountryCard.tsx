@@ -21,7 +21,7 @@ const CountryCard: React.FC<Country> = ({
           <h2>{name}</h2>
           <ul>
             <li>
-              <span>Population:</span> {population}
+              <span>Population:</span> {population.toLocaleString()}
             </li>
             <li>
               <span>Region:</span> {region}
