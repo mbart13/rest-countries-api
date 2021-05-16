@@ -11,6 +11,7 @@ export const Wrapper = styled(Container)`
 
 export const StyledLink = styled(Link)`
   background-color: var(--color-elements);
+  transition: var(--transition);
   box-shadow: 0 0 0.4375rem rgba(0, 0, 0, 0.3);
   padding: 0.375rem 1.4375rem;
   border: none;

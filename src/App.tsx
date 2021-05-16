@@ -8,13 +8,14 @@ import Country from 'models/Country';
 import { Wrapper } from './App.styles';
 import Home from 'pages/Home/Home';
 import CountryDetails from 'pages/CountryDetails/CountryDetails';
+import Theme from 'enums/Theme';
 
 function App() {
   const [countries, setCountries] = useState<Country[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedRegion, setSelectedRegion] = useState<string>('All');
   const [filteredCountries, setFilteredCountries] = useState<Country[]>([]);
-  const [theme, setTheme] = useState('light-theme');
+  const [theme, setTheme] = useState(Theme.Light);
 
   useEffect(() => {
     getCountries().then(data => setCountries(data));
@@ -35,10 +36,10 @@ function App() {
   }, [countries, selectedRegion]);
 
   const toggleTheme = (): void => {
-    if (theme === 'light-theme') {
-      setTheme('dark-theme');
+    if (theme === Theme.Light) {
+      setTheme(Theme.Dark);
     } else {
-      setTheme('light-theme');
+      setTheme(Theme.Light);
     }
   };
 
@@ -51,7 +52,7 @@ function App() {
     <Router>
       <Wrapper>
         <GlobalStyles />
-        <Header toggleTheme={toggleTheme} />
+        <Header toggleTheme={toggleTheme} theme={theme} />
         <Route exact path="/">
           <Home
             searchQuery={searchQuery}

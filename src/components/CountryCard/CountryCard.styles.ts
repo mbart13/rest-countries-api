@@ -29,6 +29,7 @@ export const FlagWrapper = styled.div`
 `;
 
 export const CountryInfo = styled.div`
+  transition: var(--transition);
   background-color: var(--color-elements);
   padding: 1.5rem;
   border-bottom-left-radius: var(--border-radius);

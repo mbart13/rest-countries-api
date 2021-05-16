@@ -29,6 +29,11 @@ const InputWrapper = styled(CardWrapper)`
     color: var(--color-input);
     padding: 0.875rem 0 0.875rem 4.625rem;
     outline: none;
+    background-color: var(--color-elements);
+
+    @media (min-width: 42.375rem) {
+      font-size: 0.875rem;
+    }
   }
 `;
 

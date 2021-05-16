@@ -20,6 +20,11 @@ export const StyledButton = styled.button`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: var(--color-text);
+
+  @media (min-width: 42.375rem) {
+    font-size: 0.875rem;
+  }
 
   svg {
     font-size: 1.2rem;
@@ -29,16 +34,24 @@ export const StyledButton = styled.button`
   }
 `;
 export const StyledList = styled.ul<StyledListProps>`
-  padding-left: 1rem;
+  padding: 0 1rem;
   margin: 0;
-  padding-bottom: ${({ isOpen }) => (isOpen ? '1rem' : 0)};
+  margin-top: 0.3rem;
+  padding: ${({ isOpen }) => (isOpen ? '1rem' : 0)};
   position: absolute;
-  background: white;
+  background: var(--color-elements);
   width: 100%;
+  color: var(--color-text);
+  z-index: 100;
 `;
+
 export const StyledListItem = styled.li`
   font-size: 0.75rem;
   ::not(::last-child) {
     margin-bottom: 0.5rem;
+  }
+
+  @media (min-width: 42.375rem) {
+    font-size: 0.875rem;
   }
 `;

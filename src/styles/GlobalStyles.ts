@@ -13,6 +13,7 @@ export const GlobalStyles = createGlobalStyle`
     --border-radius: 0.3125rem;
     --card-box-shadow: 0 0.125rem 0.5625rem rgba(0, 0, 0, 0.05);
     --media-desktop: 45rem;
+    --transition: background-color .2s linear, color .2s linear;
   }
 
   .light-theme {
@@ -20,13 +21,15 @@ export const GlobalStyles = createGlobalStyle`
     --color-text: hsl(200, 15%, 8%);
     --color-input: hsl(0, 0%, 52%);
     --color-elements: hsl(0, 0%, 100%);
+    --color-highlighted: #bde4ff;
   }
 
   .dark-theme {
     --color-bg: hsl(207, 26%, 17%);
     --color-text: hsl(0, 0%, 100%);
-    --color-input: hsl(0, 0%, 52%);
+    --color-input: hsl(0, 0%, 100%);
     --color-elements: hsl(209, 23%, 22%);
+    --color-highlighted: #517086;
  }
 
 

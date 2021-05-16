@@ -33,7 +33,6 @@ const DropDownSelect = ({
 
   return (
     <Wrapper>
-      {/* <label {...getLabelProps()}>Filter by Region</label> */}
       <StyledButton type="button" {...getToggleButtonProps()}>
         <span>{selectedRegion || 'Filter by Region'}</span>
         <RiArrowDropDownLine />
@@ -43,7 +42,9 @@ const DropDownSelect = ({
           items.map((item, index) => (
             <StyledListItem
               style={
-                highlightedIndex === index ? { backgroundColor: '#bde4ff' } : {}
+                highlightedIndex === index
+                  ? { backgroundColor: 'var(--color-highlighted)' }
+                  : {}
               }
               key={`${item}${index}`}
               {...getItemProps({ item, index })}
