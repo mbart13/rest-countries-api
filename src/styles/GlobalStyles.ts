@@ -15,6 +15,22 @@ export const GlobalStyles = createGlobalStyle`
     --media-desktop: 45rem;
   }
 
+  .light-theme {
+    --color-bg: hsl(0, 0%, 98%);
+    --color-text: hsl(200, 15%, 8%);
+    --color-input: hsl(0, 0%, 52%);
+    --color-elements: hsl(0, 0%, 100%);
+  }
+
+  .dark-theme {
+    --color-bg: hsl(207, 26%, 17%);
+    --color-text: hsl(0, 0%, 100%);
+    --color-input: hsl(0, 0%, 52%);
+    --color-elements: hsl(209, 23%, 22%);
+ }
+
+
+
   /* Box sizing rules */
   html {
     box-sizing: border-box;

@@ -14,3 +14,11 @@ export const Wrapper = styled.div`
     }
   }
 `;
+
+export const Filters = styled.div`
+  @media (min-width: ${breakpoints.desktop}) {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+`;

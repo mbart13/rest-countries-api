@@ -5,17 +5,20 @@ import {
   StyledButton,
   StyledList,
   StyledListItem,
-} from './Select.styles';
+} from './DropDownSelect.styles';
 import { RiArrowDropDownLine } from 'react-icons/ri';
 
 const items = ['All', 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
 
-type SelectProps = {
+type DropDownSelectProps = {
   selectedRegion: string;
   handleSelectedItem: any;
 };
 
-const Select = ({ selectedRegion, handleSelectedItem }: SelectProps) => {
+const DropDownSelect = ({
+  selectedRegion,
+  handleSelectedItem,
+}: DropDownSelectProps) => {
   const {
     isOpen,
     getToggleButtonProps,
@@ -53,4 +56,4 @@ const Select = ({ selectedRegion, handleSelectedItem }: SelectProps) => {
   );
 };
 
-export default Select;
+export default DropDownSelect;

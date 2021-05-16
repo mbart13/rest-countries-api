@@ -4,7 +4,6 @@ import { breakpoints } from 'styles/Breakpoints';
 
 const StyledHeader = styled.header`
   background-color: var(--color-elements);
-
   box-shadow: var(--card-box-shadow);
   margin-bottom: 1.5rem;
 
@@ -17,6 +16,10 @@ const StyledHeading = styled.h1`
   color: var(--color-text);
   font-weight: var(--fw-extra-bold);
   font-size: 0.875rem;
+
+  @media (min-width: 42.375rem) {
+    font-size: 1.5rem;
+  }
 `;
 
 const ToggleButton = styled.button`
@@ -30,6 +33,10 @@ const ToggleButton = styled.button`
     font-size: 0.75rem;
     margin-left: 0.5rem;
     font-weight: var(--fw-semi-bold);
+
+    @media (min-width: 42.375rem) {
+      font-size: 1rem;
+    }
   }
 
   :hover {
@@ -47,12 +54,12 @@ const Wrapper = styled.div`
   }
 `;
 
-const Header = () => {
+const Header: React.FC<{ toggleTheme: () => void }> = ({ toggleTheme }) => {
   return (
     <StyledHeader>
       <Wrapper>
         <StyledHeading>Where in the world?</StyledHeading>
-        <ToggleButton>
+        <ToggleButton onClick={toggleTheme}>
           <IoMoonOutline />
           <p>Dark Mode</p>
         </ToggleButton>
