@@ -22,7 +22,7 @@ const Search = ({ placeholder, setSearchQuery, searchQuery }: InputProps) => {
         type="text"
         placeholder={placeholder}
         onChange={handleChange}
-        aria-label="Search for a Country"
+        aria-label={placeholder}
       />
     </InputWrapper>
   );
