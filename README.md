@@ -38,9 +38,12 @@ Your users should be able to:
 
 ### Links
 
-[Live Site URL](https://rest-countries-api-git-main-mbart13.vercel.app)
+[Live Site URL](https://rest-countries-api-mbart13.vercel.app)
 
-To run this project, install it locally using npm:
+
+### Setup
+
+To run this project locally:
 
 ```
 npm install && npm start
@@ -67,6 +70,9 @@ yarn && yarn start
 ### What I learned
 
 Making accessible UI components like custom select is difficult, we all know that. Thankfully there are tools like Downshift, so we don't have to re-invent the wheel. So for this challenge I build custom dropdown to match design and hooked into Downshift to make it fully accessible. Works really great, you can test it out with keyboard or even screen reader.
+
+Also, this is my first React project with TypeScript. At the beginning it was tough, there was a lot of googling for sure, but on the second day I started to see the benefits that static typing provides. 
+Since I'm still learning, I didn't want TypeScript to slow me down, so to make progress with the project I used 'any' in some places and moved on. 
 
 To be added:
 
