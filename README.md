@@ -38,7 +38,7 @@ Your users should be able to:
 
 ### Links
 
-[Live Site URL](https://rest-countries-api-git-main-mbart13.vercel.app)
+[Live Site URL](https://rest-countries-api-mbart13.vercel.app)
 
 
 ### Setup
