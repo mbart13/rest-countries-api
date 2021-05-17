@@ -84,7 +84,7 @@ export const CountryInfo = styled.div`
 
   ul:first-child {
     @media (min-width: ${breakpoints.desktop}) {
-      margin-right: 7.3125rem;
+      margin-right: 5rem;
     }
   }
 

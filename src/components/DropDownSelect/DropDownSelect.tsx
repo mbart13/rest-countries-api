@@ -12,7 +12,7 @@ const items = ['All', 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
 
 type DropDownSelectProps = {
   selectedRegion: string;
-  handleSelectedItem: any;
+  handleSelectedItem: (target: any) => void;
 };
 
 const DropDownSelect = ({

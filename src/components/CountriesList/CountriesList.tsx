@@ -1,10 +1,8 @@
-import { useState } from 'react';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { css } from '@emotion/core';
-import { Wrapper, Notification, ButtonWrapper } from './CountriesList.styles';
+import { Wrapper, Notification } from './CountriesList.styles';
 import CountryCard from 'components/CountryCard/CountryCard';
 import Country from 'models/Country';
-import Button from 'components/Button/Button';
 
 const CountriesList: React.FC<{
   countries: Country[];
@@ -13,8 +11,6 @@ const CountriesList: React.FC<{
   isLoading: boolean;
   isError: boolean;
 }> = ({ countries, searchQuery, isLoading, isError }) => {
-  const [showAll, setShowAll] = useState(false);
-
   const override = css`
     display: block;
     margin: 3rem auto;
@@ -37,8 +33,6 @@ const CountriesList: React.FC<{
     );
   }
 
-  const DISPLAY_LIMIT = 20;
-
   return (
     <>
       <ClipLoader
@@ -48,19 +42,10 @@ const CountriesList: React.FC<{
         size={60}
       ></ClipLoader>
       <Wrapper>
-        {countries
-          .slice(0, showAll ? countries.length - 1 : DISPLAY_LIMIT)
-          .map((country: Country) => {
-            return <CountryCard key={country.alpha3Code} {...country} />;
-          })}
+        {countries.map((country: Country) => {
+          return <CountryCard key={country.alpha3Code} {...country} />;
+        })}
       </Wrapper>
-      {!showAll && countries.length > DISPLAY_LIMIT && (
-        <ButtonWrapper>
-          <Button handleClick={() => setShowAll(prevState => !prevState)}>
-            Show All
-          </Button>
-        </ButtonWrapper>
-      )}
     </>
   );
 };

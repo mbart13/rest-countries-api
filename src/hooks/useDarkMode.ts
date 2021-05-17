@@ -7,7 +7,6 @@ const useDarkMode = (): [string, () => void] => {
   const setMode = useCallback((mode: string) => {
     window.localStorage.setItem('theme', mode);
     setTheme(mode);
-    document.body.className = mode;
   }, []);
 
   const themeToggler = (): void => {

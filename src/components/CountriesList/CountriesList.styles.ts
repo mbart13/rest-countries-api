@@ -27,9 +27,3 @@ export const Notification = styled.p`
   padding-top: 2rem;
   color: var(--color-text);
 `;
-
-export const ButtonWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  padding-bottom: 2rem;
-`;

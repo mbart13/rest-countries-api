@@ -24,6 +24,7 @@ function App() {
       .then(data => {
         setCountries(data);
         setIsLoading(false);
+        setIsError(false);
       })
       .catch(() => {
         setIsLoading(false);
@@ -31,7 +32,7 @@ function App() {
       });
   }, []);
 
-  const handleSelectedRegion = (target: any) => {
+  const handleSelectedRegion = (target: any): void => {
     setSelectedRegion(target.selectedItem);
   };
 
