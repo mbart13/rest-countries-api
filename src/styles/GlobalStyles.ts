@@ -13,7 +13,6 @@ export const GlobalStyles = createGlobalStyle`
     --fw-extra-bold: 800;
     --border-radius: 0.3125rem;
     --card-box-shadow: 0 0.125rem 0.5625rem rgba(0, 0, 0, 0.05);
-    --media-desktop: 45rem;
     --transition: background-color .2s linear, color .2s linear;
   }
 
@@ -31,9 +30,7 @@ export const GlobalStyles = createGlobalStyle`
     --color-input: hsl(0, 0%, 100%);
     --color-elements: hsl(209, 23%, 22%);
     --color-highlighted: #517086;
- }
-
-
+  }
 
   /* Box sizing rules */
   html {
