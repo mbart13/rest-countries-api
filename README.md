@@ -40,7 +40,10 @@ Your users should be able to:
 
 [Live Site URL](https://rest-countries-api-git-main-mbart13.vercel.app)
 
-To run this project, install it locally using npm:
+
+### Setup
+
+To run this project locally:
 
 ```
 npm install && npm start
