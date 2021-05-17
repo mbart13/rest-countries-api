@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback } from 'react';
 import Theme from 'enums/Theme';
 
 const useDarkMode = (): [string, () => void] => {
-  const [theme, setTheme] = useState<string>(Theme.Dark);
+  const [theme, setTheme] = useState<string>(Theme.Light);
 
   const setMode = useCallback((mode: string) => {
     window.localStorage.setItem('theme', mode);
@@ -15,7 +15,7 @@ const useDarkMode = (): [string, () => void] => {
 
   useEffect(() => {
     const localTheme = window.localStorage.getItem('theme');
-    localTheme ? setTheme(localTheme) : setMode(Theme.Dark);
+    localTheme ? setTheme(localTheme) : setMode(Theme.Light);
   }, [setMode]);
 
   useEffect(() => {
