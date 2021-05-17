@@ -58,10 +58,6 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
   }
 
-  /* Set core root defaults */
-  html {
-    scroll-behavior: smooth;
-  }
 
   /* Set core body defaults */
   body {
