@@ -41,7 +41,7 @@ export const ToggleButton = styled.button`
   padding: 0;
   color: var(--color-text);
 
-  p {
+  span {
     font-size: 0.75rem;
     margin-left: 0.5rem;
     font-weight: var(--fw-semi-bold);

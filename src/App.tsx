@@ -9,11 +9,12 @@ import { Wrapper } from './App.styles';
 import Home from 'pages/Home/Home';
 import CountryDetails from 'pages/CountryDetails/CountryDetails';
 import useDarkMode from 'hooks/useDarkMode';
+import Regions from 'enums/Regions';
 
 function App() {
   const [countries, setCountries] = useState<Country[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [selectedRegion, setSelectedRegion] = useState<string>('All');
+  const [selectedRegion, setSelectedRegion] = useState<string>(Regions.All);
   const [filteredCountries, setFilteredCountries] = useState<Country[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
@@ -37,7 +38,7 @@ function App() {
   };
 
   useEffect(() => {
-    if (selectedRegion === 'All') {
+    if (selectedRegion === Regions.All) {
       setFilteredCountries(countries);
     } else {
       setFilteredCountries(

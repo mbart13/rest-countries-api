@@ -1,7 +1,7 @@
-import { useParams } from 'react-router-dom';
-
+import { useParams, useHistory } from 'react-router-dom';
 import Country from 'models/Country';
 import { BsArrowLeft } from 'react-icons/bs';
+import Button from 'components/Button/Button';
 import {
   Wrapper,
   CountryWrapper,
@@ -14,17 +14,17 @@ import {
 
 const CountryDetails: React.FC<{ countries: Country[] }> = ({ countries }) => {
   const { code } = useParams<{ code: string }>();
-
+  let history = useHistory();
   const country: Country | undefined = countries.find(
     country => country.alpha3Code === code
   );
 
   return (
     <Wrapper>
-      <StyledLink to="/" style={{ textDecoration: 'none' }}>
+      <Button handleClick={history.goBack}>
         <BsArrowLeft size={20} />
         Back
-      </StyledLink>
+      </Button>
       <CountryWrapper>
         <Flag>
           <img src={country?.flag} alt="" aria-hidden="true" />

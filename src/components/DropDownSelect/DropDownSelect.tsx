@@ -7,8 +7,9 @@ import {
   StyledListItem,
 } from './DropDownSelect.styles';
 import { RiArrowDropDownLine } from 'react-icons/ri';
+import Regions from 'enums/Regions';
 
-const items = ['All', 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
+const items = Object.values(Regions);
 
 type DropDownSelectProps = {
   selectedRegion: string;

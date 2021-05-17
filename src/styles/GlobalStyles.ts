@@ -8,6 +8,7 @@ export const GlobalStyles = createGlobalStyle`
     --color-input: hsl(0, 0%, 52%);
     --color-elements: hsl(0, 0%, 100%);
     --color-highlighted: #bde4ff;
+    --color-red: #DB3930;
     --fw-light: 300;
     --fw-semi-bold: 600;
     --fw-extra-bold: 800;
@@ -111,5 +112,19 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     font-family: 'Nunito Sans', sans-serif;
+  }
+
+  a:focus,
+  button:focus {
+    outline: 2px dashed var(--color-red);
+    outline-offset: 4x;
+  }
+
+  a:focus:not(:focus-visible),
+  button:focus:not(:focus-visible) {
+      outline: none;
+  }
+  ul:focus-visible {
+    outline: none;
   }
 `;
