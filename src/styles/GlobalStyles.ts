@@ -118,7 +118,7 @@ export const GlobalStyles = createGlobalStyle`
 
   a:focus:not(:focus-visible),
   button:focus:not(:focus-visible) {
-      outline: none;
+    outline: none;
   }
   ul:focus-visible {
     outline: none;
