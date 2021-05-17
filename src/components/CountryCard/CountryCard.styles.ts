@@ -14,7 +14,7 @@ const appear = keyframes`
 export const Container = styled(CardWrapper)`
   box-shadow: 0 0 0.4375rem 0.125rem rgba(0, 0, 0, 0.03);
   transition: transform 0.2s cubic-bezier(0.34, 2, 0.6, 1);
-  animation: ${appear} 2s ease;
+  animation: ${appear} 1s ease;
 
   :hover {
     cursor: pointer;
