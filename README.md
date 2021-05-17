@@ -7,7 +7,7 @@ This is a solution to the [REST Countries API with color theme switcher coding c
 - [Overview](#overview)
   - [The challenge](#the-challenge)
   - [Screenshot](#screenshot)
-  - [Links](#links)git pus
+  - [Links](#links)
   - [Setup](#setup)
 - [My process](#my-process)
   - [Built with](#built-with)
@@ -17,7 +17,6 @@ This is a solution to the [REST Countries API with color theme switcher coding c
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
