@@ -31,6 +31,8 @@ Your users should be able to:
 - Click through to the border countries on the detail page
 - Toggle the color scheme between light and dark mode _(optional)_
 
+I added pagination as an extra feature
+
 ### Screenshot
 
 ![](./screenshot.png)
@@ -64,6 +66,7 @@ yarn && yarn start
 - React Router Dom
 - Downshift
 - Axios
+- React Paginate
 - Mobile-first workflow
 
 ### What I learned
