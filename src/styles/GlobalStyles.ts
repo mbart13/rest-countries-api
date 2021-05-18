@@ -154,22 +154,11 @@ export const GlobalStyles = createGlobalStyle`
     li:not(:last-child) {
       margin-right: .2rem;
     }
-    li {
-      /* padding: .5rem; */
-    }
 
     a {
         display: block;
-        /* position: relative; */
         padding: .5rem;
     }
-
-    /* a::after {
-      position:absolute;
-      content: '';
-      width: 100%;
-      height: 100%;
-    } */
 
     li:hover {
       cursor: pointer;
