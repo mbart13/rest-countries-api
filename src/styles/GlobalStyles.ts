@@ -156,7 +156,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     a {
-        display: block;
+        display: flex;
         padding: .5rem;
     }
 
