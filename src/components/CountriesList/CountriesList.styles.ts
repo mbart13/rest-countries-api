@@ -8,7 +8,7 @@ export const Wrapper = styled.ul`
   gap: 2.5rem;
 
   @media (min-width: 42.375rem) {
-    padding: 3rem 0;
+    padding: 3rem 0 1rem;
     grid-template-columns: repeat(2, minmax(16.5rem, 1fr));
   }
 

@@ -6,21 +6,15 @@ import Country from 'models/Country';
 
 const CountriesList: React.FC<{
   countries: Country[];
-  searchQuery: string;
   selectedRegion: string;
   isLoading: boolean;
   isError: boolean;
-}> = ({ countries, searchQuery, isLoading, isError }) => {
+}> = ({ countries, isLoading, isError }) => {
   const override = css`
     display: block;
     margin: 3rem auto;
   `;
 
-  if (searchQuery) {
-    countries = countries.filter(country =>
-      country.name.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-  }
   if (!countries.length && !isLoading && !isError) {
     return <Notification>No results found</Notification>;
   }

@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { breakpoints } from 'styles/Breakpoints';
 
 export const GlobalStyles = createGlobalStyle`
 
@@ -23,14 +24,15 @@ export const GlobalStyles = createGlobalStyle`
     --color-input: hsl(0, 0%, 52%);
     --color-elements: hsl(0, 0%, 100%);
     --color-highlighted: #bde4ff;
+    --color-page-hover: #e7e5e5;
   }
 
   .dark-theme {
     --color-bg: hsl(207, 26%, 17%);
     --color-text: hsl(0, 0%, 100%);
-    --color-input: hsl(0, 0%, 100%);
     --color-elements: hsl(209, 23%, 22%);
     --color-highlighted: #517086;
+    --color-page-hover: var(--color-elements);
   }
 
   /* Box sizing rules */
@@ -122,5 +124,48 @@ export const GlobalStyles = createGlobalStyle`
   }
   ul:focus-visible {
     outline: none;
+  }
+
+  .pagination {
+    display: flex;
+    align-items: center;
+    /* gap: .5rem; */
+    margin: 0 auto;
+    margin: 0 auto;
+    padding: 1rem 1rem 2rem;
+    justify-content: center;
+    color: var(--color-text);
+    font-size: .7;
+
+    @media (min-width: ${breakpoints.tablet}) {
+      font-size: 1.1rem;
+    }
+
+    .previous.disabled,
+    .next.disabled {
+      background-color: transparent;
+      pointer-events: none;
+    }
+
+    .active {
+      background-color: var(--color-highlighted)
+    }
+
+    li:not(:last-child) {
+      margin-right: .2rem;
+    }
+    li {
+      padding: .5rem;
+    }
+
+    a {
+        display: flex;
+    }
+
+    li:hover {
+      cursor: pointer;
+      background-color: var(--color-page-hover);
+
+    }
   }
 `;
