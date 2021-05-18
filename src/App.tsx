@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import { GlobalStyles } from 'styles/GlobalStyles';
 import { useState, useEffect } from 'react';
@@ -19,6 +19,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [theme, themeToggler] = useDarkMode();
+  const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
     getCountries()
@@ -47,25 +48,38 @@ function App() {
     }
   }, [countries, selectedRegion]);
 
+  useEffect(() => {
+    setCurrentPage(0);
+  }, [selectedRegion, searchQuery]);
+
+  const handlePageClick = ({ selected }: any): void => {
+    setCurrentPage(selected);
+    window.scrollTo(0, 0);
+  };
+
   return (
     <Router>
       <Wrapper>
         <GlobalStyles />
         <Header toggleTheme={themeToggler} theme={theme} />
-        <Route exact path="/">
-          <Home
-            searchQuery={searchQuery}
-            selectedRegion={selectedRegion}
-            setSearchQuery={setSearchQuery}
-            filteredCountries={filteredCountries}
-            handleSelectedRegion={handleSelectedRegion}
-            isLoading={isLoading}
-            isError={isError}
-          />
-        </Route>
-        <Route exact path="/:code">
-          <CountryDetails countries={countries} />
-        </Route>
+        <Switch>
+          <Route exact path="/">
+            <Home
+              searchQuery={searchQuery}
+              selectedRegion={selectedRegion}
+              setSearchQuery={setSearchQuery}
+              filteredCountries={filteredCountries}
+              handleSelectedRegion={handleSelectedRegion}
+              isLoading={isLoading}
+              isError={isError}
+              currentPage={currentPage}
+              handlePageClick={handlePageClick}
+            />
+          </Route>
+          <Route path="/:code">
+            <CountryDetails countries={countries} />
+          </Route>
+        </Switch>
       </Wrapper>
     </Router>
   );

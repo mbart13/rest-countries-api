@@ -1,3 +1,5 @@
+import React from 'react';
+
 import ClipLoader from 'react-spinners/ClipLoader';
 import { css } from '@emotion/core';
 import { Wrapper, Notification } from './CountriesList.styles';

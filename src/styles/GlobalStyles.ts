@@ -135,10 +135,10 @@ export const GlobalStyles = createGlobalStyle`
     padding: 1rem 1rem 2rem;
     justify-content: center;
     color: var(--color-text);
-    font-size: .7;
+    font-size: .7rem;
 
     @media (min-width: ${breakpoints.tablet}) {
-      font-size: 1.1rem;
+      font-size: 1rem;
     }
 
     .previous.disabled,
@@ -155,12 +155,21 @@ export const GlobalStyles = createGlobalStyle`
       margin-right: .2rem;
     }
     li {
-      padding: .5rem;
+      /* padding: .5rem; */
     }
 
     a {
-        display: flex;
+        display: block;
+        /* position: relative; */
+        padding: .5rem;
     }
+
+    /* a::after {
+      position:absolute;
+      content: '';
+      width: 100%;
+      height: 100%;
+    } */
 
     li:hover {
       cursor: pointer;

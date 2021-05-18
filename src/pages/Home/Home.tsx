@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useState, useEffect } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 
 import Search from 'components/Search/Search';
 import Select from 'components/DropDownSelect/DropDownSelect';
@@ -7,6 +7,7 @@ import ReactPaginate from 'react-paginate';
 import { Filters } from './Home.styles';
 import Country from 'models/Country';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import Pagination from 'enums/Pagination';
 
 type HomeProps = {
   searchQuery: string;
@@ -16,6 +17,8 @@ type HomeProps = {
   filteredCountries: Country[];
   isLoading: boolean;
   isError: boolean;
+  currentPage: number;
+  handlePageClick: (selected: any) => void;
 };
 
 const Home: React.FC<HomeProps> = ({
@@ -26,33 +29,23 @@ const Home: React.FC<HomeProps> = ({
   filteredCountries,
   isLoading,
   isError,
+  currentPage,
+  handlePageClick,
 }) => {
-  const COUNTRIES_PER_PAGE = 20;
-  const [currentPage, setCurrentPage] = useState(0);
-
-  const handlePageClick = (data: any) => {
-    setCurrentPage(data.selected);
-    window.scrollTo(0, 0);
-  };
-
-  useEffect(() => {
-    setCurrentPage(0);
-  }, [selectedRegion, searchQuery]);
-
   if (searchQuery) {
     filteredCountries = filteredCountries.filter(country =>
       country.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
   }
 
-  const offset = currentPage * COUNTRIES_PER_PAGE;
-  const currentPageData = filteredCountries.slice(
+  const offset = currentPage * Pagination.PageSize;
+  const currentPageData: Country[] = filteredCountries.slice(
     offset,
-    offset + COUNTRIES_PER_PAGE
+    offset + Pagination.PageSize
   );
-  const pageCount = Math.ceil(filteredCountries.length / COUNTRIES_PER_PAGE);
+  const pageCount = Math.ceil(filteredCountries.length / Pagination.PageSize);
   const shouldPaginationBeShown =
-    !isLoading && !isError && filteredCountries.length > COUNTRIES_PER_PAGE;
+    !isLoading && !isError && filteredCountries.length > Pagination.PageSize;
 
   return (
     <main>
@@ -78,10 +71,9 @@ const Home: React.FC<HomeProps> = ({
           previousLabel={<FaChevronLeft />}
           nextLabel={<FaChevronRight />}
           breakLabel={'...'}
-          breakClassName={'break-me'}
           pageCount={pageCount}
-          marginPagesDisplayed={1}
-          pageRangeDisplayed={3}
+          marginPagesDisplayed={Pagination.MarginPagesDisplayed}
+          pageRangeDisplayed={Pagination.PageRangeDisplayed}
           onPageChange={handlePageClick}
           activeClassName={'active'}
           containerClassName={'pagination'}
