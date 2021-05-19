@@ -129,7 +129,6 @@ export const GlobalStyles = createGlobalStyle`
   .pagination {
     display: flex;
     align-items: center;
-    /* gap: .5rem; */
     margin: 0 auto;
     margin: 0 auto;
     padding: 1rem 1rem 2rem;
@@ -155,15 +154,15 @@ export const GlobalStyles = createGlobalStyle`
       margin-right: .2rem;
     }
 
-    a {
-        display: flex;
-        padding: .5rem;
-    }
-
     li:hover {
       cursor: pointer;
       background-color: var(--color-page-hover);
 
+    }
+
+    a {
+        display: flex;
+        padding: .5rem;
     }
   }
 `;
