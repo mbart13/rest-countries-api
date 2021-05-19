@@ -3,7 +3,9 @@
     "react-app",
     "react-app/jest",
     "plugin:prettier/recommended",
-    "prettier"
+    "prettier",
+    "testing-library",
+    "jest-dom"
   ],
   "plugins": ["prettier"],
   "env": {
