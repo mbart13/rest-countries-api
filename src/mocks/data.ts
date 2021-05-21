@@ -1,5 +1,3 @@
-import Country from 'models/Country';
-
 const data = [
   {
     name: 'Afghanistan',
