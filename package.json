@@ -32,9 +32,7 @@
     "build": "react-scripts build",
     "test": "tsc --noEmit && react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint --fix --ext .jsx,.js,.ts,.tsx .",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "lint": "eslint --fix --ext .jsx,.js,.ts,.tsx ."
   },
   "resolutions": {
     "babel-loader": "8.1.0"
@@ -43,16 +41,6 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ],
-    "overrides": [
-      {
-        "files": [
-          "**/*.stories.*"
-        ],
-        "rules": {
-          "import/no-anonymous-default-export": "off"
-        }
-      }
     ]
   },
   "lint-staged": {
@@ -78,12 +66,6 @@
     ]
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.2.9",
-    "@storybook/addon-essentials": "^6.2.9",
-    "@storybook/addon-links": "^6.2.9",
-    "@storybook/node-logger": "^6.2.9",
-    "@storybook/preset-create-react-app": "^3.1.7",
-    "@storybook/react": "^6.2.9",
     "eslint": "^7.26.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-jest-dom": "^3.9.0",

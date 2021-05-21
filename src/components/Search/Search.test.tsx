@@ -26,7 +26,7 @@ describe('Search component', () => {
 
   it('displays search phrase correctly', () => {
     userEvent.type(screen.getByRole('textbox'), searchPhrase);
-    expect(screen.getByRole('textbox')).toHaveValue('Poland');
-    expect(mockSearchQueryHandler).toHaveBeenCalledTimes(6);
+    expect(screen.getByRole('textbox')).toHaveValue(searchPhrase);
+    expect(mockSearchQueryHandler).toHaveBeenCalledTimes(searchPhrase.length);
   });
 });

@@ -3,11 +3,9 @@
     "react-app",
     "react-app/jest",
     "plugin:prettier/recommended",
-    "prettier",
-    "testing-library",
-    "jest-dom"
+    "prettier"
   ],
-  "plugins": ["prettier"],
+  "plugins": ["prettier", "testing-library", "jest-dom"],
   "env": {
     "browser": true,
     "node": true,

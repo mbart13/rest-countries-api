@@ -1,5 +1,4 @@
 import { Dispatch, SetStateAction } from 'react';
-
 import { AiOutlineSearch } from 'react-icons/ai';
 import { InputWrapper } from './Search.styles';
 
@@ -10,10 +9,6 @@ type InputProps = {
 };
 
 const Search = ({ placeholder, setSearchQuery, searchQuery }: InputProps) => {
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(e.target.value);
-  };
-
   return (
     <InputWrapper>
       <AiOutlineSearch />
@@ -21,7 +16,7 @@ const Search = ({ placeholder, setSearchQuery, searchQuery }: InputProps) => {
         value={searchQuery}
         type="text"
         placeholder={placeholder}
-        onChange={handleChange}
+        onChange={e => setSearchQuery(e.target.value)}
         aria-label={placeholder}
       />
     </InputWrapper>

@@ -89,7 +89,7 @@ const CountryDetails: React.FC<{ countries: Country[] }> = ({ countries }) => {
               })}
             </BorderingCountries>
           ) : (
-            'N/A'
+            'n/a'
           )}
         </StyledCountryDetails>
       </CountryWrapper>

@@ -1,7 +1,7 @@
 import Currency from './Currency';
 import Language from './Language';
 
-interface Country {
+type Country = {
   alpha3Code: string;
   name: string;
   nativeName: string;
@@ -14,6 +14,6 @@ interface Country {
   currencies: Currency[];
   languages: Language[];
   borders: string[];
-}
+};
 
 export default Country;
