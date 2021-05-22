@@ -41,11 +41,8 @@ export const CountryWrapper = styled.div`
 export const StyledCountryDetails = styled.div`
   padding-top: 2.75rem;
   color: var(--color-text);
-  h3 {
-    font-size: 1rem;
-  }
 
-  h2 {
+  h1 {
     font-size: 1.375rem;
     font-weight: --var(fw-extra-bold);
     margin-bottom: 1rem;
@@ -53,6 +50,10 @@ export const StyledCountryDetails = styled.div`
     @media (min-width: ${breakpoints.desktop}) {
       font-size: 2rem;
     }
+  }
+
+  h2 {
+    font-size: 1rem;
   }
 
   @media (min-width: ${breakpoints.desktop}) {

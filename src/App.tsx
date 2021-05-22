@@ -24,7 +24,7 @@ function App() {
   useEffect(() => {
     (async () => {
       try {
-        let data = await getCountries();
+        const data = await getCountries();
         setCountries(data);
         setIsError(false);
       } catch (e) {
