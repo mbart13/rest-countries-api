@@ -20,17 +20,17 @@ const CountryDetails: React.FC<{ countries: Country[] }> = ({ countries }) => {
   );
 
   return (
-    <Wrapper>
+    <Wrapper as="main">
       <Button handleClick={history.goBack}>
         <BsArrowLeft size={20} />
         Back
       </Button>
-      <CountryWrapper>
+      <CountryWrapper as="article">
         <Flag>
-          <img src={country?.flag} alt="" aria-hidden="true" />
+          <img src={country?.flag} alt={`flag of ${country?.name}`} />
         </Flag>
         <StyledCountryDetails>
-          <h2>{country?.name}</h2>
+          <h1>{country?.name}</h1>
           <CountryInfo>
             <ul>
               <li>
@@ -69,7 +69,7 @@ const CountryDetails: React.FC<{ countries: Country[] }> = ({ countries }) => {
               </li>
             </ul>
           </CountryInfo>
-          <h3>Border Countries: </h3>
+          <h2>Border Countries: </h2>
           {!!country?.borders.length ? (
             <BorderingCountries>
               {country?.borders.map(border => {
