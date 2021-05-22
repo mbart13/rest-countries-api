@@ -22,16 +22,16 @@ function App() {
   const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
-    getCountries()
-      .then(data => {
+    (async () => {
+      try {
+        let data = await getCountries();
         setCountries(data);
-        setIsLoading(false);
         setIsError(false);
-      })
-      .catch(() => {
-        setIsLoading(false);
+      } catch (e) {
         setIsError(true);
-      });
+      }
+      setIsLoading(false);
+    })();
   }, []);
 
   const handleSelectedRegion = (target: any): void => {
