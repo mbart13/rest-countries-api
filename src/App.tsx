@@ -8,7 +8,7 @@ import Country from 'models/Country';
 import { Wrapper } from './App.styles';
 import Home from 'pages/Home/Home';
 import CountryDetails from 'pages/CountryDetails/CountryDetails';
-import useDarkMode from 'hooks/useDarkMode';
+import useDarkMode from 'hooks/UseDarkMode';
 import Regions from 'enums/Regions';
 
 function App() {
@@ -16,21 +16,23 @@ function App() {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedRegion, setSelectedRegion] = useState<string>(Regions.All);
   const [filteredCountries, setFilteredCountries] = useState<Country[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [theme, themeToggler] = useDarkMode();
   const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
     (async () => {
+      setIsLoading(true);
       try {
         const data = await getCountries();
         setCountries(data);
         setIsError(false);
       } catch (e) {
         setIsError(true);
+      } finally {
+        setIsLoading(false);
       }
-      setIsLoading(false);
     })();
   }, []);
 

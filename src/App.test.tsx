@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import App from './App';
 import * as api from './helpers/api';
 import data from 'mocks/data';
@@ -18,7 +19,6 @@ describe('App component', () => {
     });
 
     render(<App />);
-
     const countries = await screen.findAllByTestId('country');
     expect(mockGetCountries).toBeCalledTimes(1);
     expect(countries).toHaveLength(20);
@@ -28,10 +28,25 @@ describe('App component', () => {
     mockGetCountries.mockImplementationOnce((): Promise<any> => {
       return Promise.reject(data);
     });
-
     render(<App />);
-
     const errorMessage = await screen.findByText(/something went wrong/i);
     expect(errorMessage).toBeInTheDocument();
+  });
+
+  it('displays correct option after selecting from dropdown', async () => {
+    mockGetCountries.mockImplementationOnce((): Promise<any> => {
+      return Promise.resolve(data);
+    });
+
+    render(<App />);
+    const indexOfEurope = 4;
+    const button = await screen.findByText('All');
+
+    userEvent.click(button);
+    const options = screen.getAllByRole('option');
+    const selectedOption = options[indexOfEurope];
+    userEvent.click(selectedOption);
+
+    expect(button).toHaveTextContent('Europe');
   });
 });

@@ -115,7 +115,7 @@ export const GlobalStyles = createGlobalStyle`
   a:focus,
   button:focus {
     outline: 2px dashed var(--color-red);
-    outline-offset: 4x;
+    outline-offset: 4px;
   }
 
   a:focus:not(:focus-visible),
