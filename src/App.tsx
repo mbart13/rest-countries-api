@@ -30,8 +30,9 @@ function App() {
         setIsError(false);
       } catch (e) {
         setIsError(true);
+      } finally {
+        setIsLoading(false);
       }
-      setIsLoading(false);
     })();
   }, []);
 
