@@ -16,7 +16,7 @@ function App() {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedRegion, setSelectedRegion] = useState<string>(Regions.All);
   const [filteredCountries, setFilteredCountries] = useState<Country[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [theme, themeToggler] = useDarkMode();
   const [currentPage, setCurrentPage] = useState(0);
@@ -30,9 +30,8 @@ function App() {
         setIsError(false);
       } catch (e) {
         setIsError(true);
-      } finally {
-        setIsLoading(false);
       }
+      setIsLoading(false);
     })();
   }, []);
 
