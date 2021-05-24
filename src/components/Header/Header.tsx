@@ -19,14 +19,7 @@ const Header: React.FC<{ toggleTheme: () => void; theme: string }> = ({
         <StyledHeading to="/" style={{ textDecoration: 'none' }}>
           Where in the world?
         </StyledHeading>
-        <ToggleButton
-          onClick={toggleTheme}
-          aria-label={
-            theme === Theme.Light
-              ? 'Change to dark mode'
-              : 'Change to light mode'
-          }
-        >
+        <ToggleButton onClick={toggleTheme} aria-live="polite">
           {theme === Theme.Light ? <IoMoonOutline /> : <FiSun />}
           <span>{theme === Theme.Light ? 'Dark Mode' : 'Light Mode'}</span>
         </ToggleButton>
