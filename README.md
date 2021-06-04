@@ -64,7 +64,8 @@ npm test
 - React Router Dom
 - Downshift
 - Axios
-- React Paginate
+- react-paginate
+- react-media-hook
 - Mobile-first workflow
 
 ### What I learned
@@ -74,13 +75,9 @@ Making accessible UI components like custom select is difficult, we all know tha
 Also, this is my first React project with TypeScript. At the beginning it was tough, there was a lot of googling for sure, but on the second day I started to see the benefits that static typing provides.
 Since I'm still learning, I didn't want TypeScript to slow me down, so to make progress with the project I used 'any' in some places and moved on.
 
-To be added:
-
-1. Checking if user prefers dark mode based on OS settings.
-
 ### Useful resources
 
-- [Dark mode in react](https://www.smashingmagazine.com/2020/04/dark-mode-react-apps-styled-components/) - This helped me implement my custom hook, but I had to adjust it for my app, since I'm not using ThemeProvider
+- [Dark mode in react](https://www.npmjs.com/package/react-media-hook/) - great package that you can use to check whether user prefers dark or light mode based on their OS settings
 
 ## Author
 

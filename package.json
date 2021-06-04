@@ -19,6 +19,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
+    "react-media-hook": "^0.4.9",
     "react-paginate": "^7.1.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
@@ -36,12 +37,6 @@
   },
   "resolutions": {
     "babel-loader": "8.1.0"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "lint-staged": {
     "src/**/*.{ts,tsx,js,jsx,json}": [
