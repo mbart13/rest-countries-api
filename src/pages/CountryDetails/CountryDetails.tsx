@@ -1,4 +1,5 @@
 import { useParams, useHistory } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
 import Country from 'models/Country';
 import { BsArrowLeft } from 'react-icons/bs';
 import Button from 'components/Button/Button';
@@ -11,8 +12,10 @@ import {
   StyledLink,
   BorderingCountries,
 } from './CountryDetails.styles';
+import { countriesState } from 'store';
 
-const CountryDetails: React.FC<{ countries: Country[] }> = ({ countries }) => {
+const CountryDetails: React.FC = () => {
+  const countries = useRecoilValue(countriesState);
   const { code } = useParams<{ code: string }>();
   const history = useHistory();
   const country: Country | undefined = countries.find(

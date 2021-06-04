@@ -1,20 +1,13 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen } from 'test-utils';
 import userEvent from '@testing-library/user-event';
 import DropDownSelect from './DropDownSelect';
 import Regions from 'enums/Regions';
 
-let mockHandleSelectedItem: jest.Mock<any, any>;
 let selectedRegion: string;
 
 beforeEach(() => {
   selectedRegion = 'All';
-  mockHandleSelectedItem = jest.fn();
-  render(
-    <DropDownSelect
-      selectedRegion={selectedRegion}
-      handleSelectedItem={mockHandleSelectedItem}
-    />
-  );
+  render(<DropDownSelect />);
 });
 
 describe('DropDownSelect component', () => {
@@ -43,5 +36,17 @@ describe('DropDownSelect component', () => {
     const selectedOption = screen.getByText('Europe');
     userEvent.click(selectedOption);
     expect(selectedOption).toHaveAttribute('aria-selected', 'true');
+  });
+
+  it('displays correct option after selecting from dropdown', () => {
+    const indexOfEurope = 4;
+    const button = screen.getByText('All');
+
+    userEvent.click(button);
+    const options = screen.getAllByRole('option');
+    const selectedOption = options[indexOfEurope];
+    userEvent.click(selectedOption);
+
+    expect(button).toHaveTextContent('Europe');
   });
 });

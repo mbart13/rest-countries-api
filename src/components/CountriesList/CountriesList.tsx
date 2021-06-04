@@ -1,47 +1,60 @@
-import React from 'react';
+import { useEffect } from 'react';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import ReactPaginate from 'react-paginate';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
-import ClipLoader from 'react-spinners/ClipLoader';
-import { css } from '@emotion/core';
 import { Wrapper, Notification } from './CountriesList.styles';
 import CountryCard from 'components/CountryCard/CountryCard';
 import Country from 'models/Country';
+import Pagination from 'enums/Pagination';
+import { filteredCountriesState, currentPageState } from 'store';
 
-const CountriesList: React.FC<{
-  countries: Country[];
-  selectedRegion: string;
-  isLoading: boolean;
-  isError: boolean;
-}> = ({ countries, isLoading, isError }) => {
-  const override = css`
-    display: block;
-    margin: 3rem auto;
-  `;
+const CountriesList: React.FC = () => {
+  const filteredCountries = useRecoilValue(filteredCountriesState);
+  const [currentPage, setCurrentPage] = useRecoilState(currentPageState);
 
-  if (!countries.length && !isLoading && !isError) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentPage]);
+
+  if (!filteredCountries.length) {
     return <Notification>No results found</Notification>;
   }
 
-  if (isError) {
-    return (
-      <Notification>
-        Something went wrong. Please try to refresh the page.
-      </Notification>
-    );
-  }
+  const offset = currentPage * Pagination.PageSize;
+  const currentPageData: Country[] = filteredCountries.slice(
+    offset,
+    offset + Pagination.PageSize
+  );
+  const pageCount = Math.ceil(filteredCountries.length / Pagination.PageSize);
+  const shouldPaginationBeShown =
+    filteredCountries.length > Pagination.PageSize;
+
+  const handlePageClick = ({ selected }: any): void => {
+    setCurrentPage(selected);
+  };
 
   return (
     <>
-      <ClipLoader
-        css={override}
-        color="#36D7B7"
-        loading={isLoading}
-        size={60}
-      ></ClipLoader>
       <Wrapper>
-        {countries.map((country: Country) => {
+        {currentPageData.map((country: Country) => {
           return <CountryCard key={country.alpha3Code} {...country} />;
         })}
       </Wrapper>
+      {shouldPaginationBeShown && (
+        <ReactPaginate
+          previousLabel={<FaChevronLeft />}
+          nextLabel={<FaChevronRight />}
+          breakLabel={'...'}
+          pageCount={pageCount}
+          marginPagesDisplayed={Pagination.MarginPagesDisplayed}
+          pageRangeDisplayed={Pagination.PageRangeDisplayed}
+          onPageChange={handlePageClick}
+          activeClassName={'active'}
+          containerClassName={'pagination'}
+          forcePage={currentPage}
+        />
+      )}
     </>
   );
 };

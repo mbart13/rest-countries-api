@@ -1,5 +1,5 @@
 import { useSelect } from 'downshift';
-
+import { useRecoilState } from 'recoil';
 import {
   Wrapper,
   StyledButton,
@@ -8,18 +8,12 @@ import {
 } from './DropDownSelect.styles';
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import Regions from 'enums/Regions';
+import { regionFilterState } from 'store';
 
 const items = Object.values(Regions);
 
-type DropDownSelectProps = {
-  selectedRegion: string;
-  handleSelectedItem: (target: any) => void;
-};
-
-const DropDownSelect = ({
-  selectedRegion,
-  handleSelectedItem,
-}: DropDownSelectProps) => {
+const DropDownSelect = () => {
+  const [filter, setFilter] = useRecoilState(regionFilterState);
   const {
     isOpen,
     getToggleButtonProps,
@@ -28,14 +22,14 @@ const DropDownSelect = ({
     getItemProps,
   } = useSelect({
     items,
-    selectedItem: selectedRegion,
-    onSelectedItemChange: handleSelectedItem,
+    selectedItem: filter,
+    onSelectedItemChange: (target: any) => setFilter(target.selectedItem),
   });
 
   return (
     <Wrapper>
       <StyledButton type="button" {...getToggleButtonProps()}>
-        <span>{selectedRegion || 'Filter by Region'}</span>
+        <span>{filter || 'Filter by Region'}</span>
         <RiArrowDropDownLine />
       </StyledButton>
       <StyledList {...getMenuProps()} isOpen={isOpen}>

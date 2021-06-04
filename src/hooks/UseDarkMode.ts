@@ -7,7 +7,7 @@ const useDarkMode = (): [string, () => void] => {
     ? Theme.Dark
     : Theme.Light;
   const [theme, setTheme] = useState<string>(
-    localStorage.getItem('theme') || preferredTheme
+    window.localStorage.getItem('theme') || preferredTheme
   );
 
   const themeToggler = (): void => {

@@ -1,14 +1,15 @@
-import { Dispatch, SetStateAction } from 'react';
+import { useRecoilState } from 'recoil';
 import { AiOutlineSearch } from 'react-icons/ai';
+
 import { InputWrapper } from './Search.styles';
+import { searchQueryState } from 'store';
 
 type InputProps = {
   placeholder: string;
-  setSearchQuery: Dispatch<SetStateAction<string>>;
-  searchQuery: string;
 };
 
-const Search = ({ placeholder, setSearchQuery, searchQuery }: InputProps) => {
+const Search = ({ placeholder }: InputProps) => {
+  const [searchQuery, setSearchQuery] = useRecoilState(searchQueryState);
   return (
     <InputWrapper>
       <AiOutlineSearch />

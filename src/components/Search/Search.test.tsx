@@ -1,21 +1,13 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen } from 'test-utils';
 import userEvent from '@testing-library/user-event';
 import Search from './Search';
 
-let mockSearchQueryHandler: jest.Mock<any, any>;
 let searchPhrase: string;
 
 beforeEach(() => {
   const placeholder = 'Search for a country...';
   searchPhrase = 'Poland';
-  mockSearchQueryHandler = jest.fn();
-  render(
-    <Search
-      placeholder={placeholder}
-      searchQuery={searchPhrase}
-      setSearchQuery={mockSearchQueryHandler}
-    />
-  );
+  render(<Search placeholder={placeholder} />);
 });
 
 describe('Search component', () => {
@@ -29,8 +21,8 @@ describe('Search component', () => {
     expect(screen.getByRole('textbox')).toHaveValue(searchPhrase);
   });
 
-  it('calls setSearchQuery prop 6 times', () => {
-    userEvent.type(screen.getByRole('textbox'), searchPhrase);
-    expect(mockSearchQueryHandler).toHaveBeenCalledTimes(searchPhrase.length);
-  });
+  // it('calls setSearchQuery prop 6 times', () => {
+  //   userEvent.type(screen.getByRole('textbox'), searchPhrase);
+  //   expect(mockSearchQueryHandler).toHaveBeenCalledTimes(searchPhrase.length);
+  // });
 });

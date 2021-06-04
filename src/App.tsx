@@ -1,87 +1,45 @@
+import { Suspense, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { ErrorBoundary } from 'react-error-boundary';
+import { useSetRecoilState, useRecoilValue } from 'recoil';
 
-import { GlobalStyles } from 'styles/GlobalStyles';
-import { useState, useEffect } from 'react';
 import Header from 'components/Header/Header';
-import getCountries from './helpers/api';
-import Country from 'models/Country';
+import { GlobalStyles } from 'styles/GlobalStyles';
 import { Wrapper } from './App.styles';
 import Home from 'pages/Home/Home';
 import CountryDetails from 'pages/CountryDetails/CountryDetails';
 import useDarkMode from 'hooks/UseDarkMode';
-import Regions from 'enums/Regions';
+import Spinner from 'components/Spinner';
+import { regionFilterState, searchQueryState, currentPageState } from 'store';
+import ErrorFallback from 'components/ErrorFallback';
 
 function App() {
-  const [countries, setCountries] = useState<Country[]>([]);
-  const [searchQuery, setSearchQuery] = useState<string>('');
-  const [selectedRegion, setSelectedRegion] = useState<string>(Regions.All);
-  const [filteredCountries, setFilteredCountries] = useState<Country[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
+  const filter = useRecoilValue(regionFilterState);
+  const searchQuery = useRecoilValue(searchQueryState);
+  const setCurrentPage = useSetRecoilState(currentPageState);
   const [theme, themeToggler] = useDarkMode();
-  const [currentPage, setCurrentPage] = useState(0);
-
-  useEffect(() => {
-    (async () => {
-      setIsLoading(true);
-      try {
-        const data = await getCountries();
-        setCountries(data);
-        setIsError(false);
-      } catch (e) {
-        setIsError(true);
-      } finally {
-        setIsLoading(false);
-      }
-    })();
-  }, []);
-
-  const handleSelectedRegion = (target: any): void => {
-    setSelectedRegion(target.selectedItem);
-  };
-
-  useEffect(() => {
-    if (selectedRegion === Regions.All) {
-      setFilteredCountries(countries);
-    } else {
-      setFilteredCountries(
-        countries.filter(country => country.region === selectedRegion)
-      );
-    }
-  }, [countries, selectedRegion]);
 
   useEffect(() => {
     setCurrentPage(0);
-  }, [selectedRegion, searchQuery]);
-
-  const handlePageClick = ({ selected }: any): void => {
-    setCurrentPage(selected);
-    window.scrollTo(0, 0);
-  };
+  }, [filter, searchQuery, setCurrentPage]);
 
   return (
     <Router>
       <Wrapper>
         <GlobalStyles />
         <Header toggleTheme={themeToggler} theme={theme} />
-        <Switch>
-          <Route exact path="/">
-            <Home
-              searchQuery={searchQuery}
-              selectedRegion={selectedRegion}
-              setSearchQuery={setSearchQuery}
-              filteredCountries={filteredCountries}
-              handleSelectedRegion={handleSelectedRegion}
-              isLoading={isLoading}
-              isError={isError}
-              currentPage={currentPage}
-              handlePageClick={handlePageClick}
-            />
-          </Route>
-          <Route path="/:code">
-            <CountryDetails countries={countries} />
-          </Route>
-        </Switch>
+        <ErrorBoundary fallback={<ErrorFallback />}>
+          <Suspense fallback={<Spinner />}>
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route path="/:code">
+                <CountryDetails />
+              </Route>
+            </Switch>
+          </Suspense>
+        </ErrorBoundary>
       </Wrapper>
     </Router>
   );

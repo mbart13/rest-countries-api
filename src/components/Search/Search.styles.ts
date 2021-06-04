@@ -23,7 +23,7 @@ export const InputWrapper = styled(CardWrapper)`
     border: none;
     width: 100%;
     font-size: 0.75rem;
-    color: var(--color-input);
+    color: var(--color-text);
     padding: 0.875rem 0 0.875rem 4.625rem;
     outline: none;
     background-color: var(--color-elements);
