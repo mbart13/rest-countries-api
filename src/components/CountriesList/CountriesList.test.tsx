@@ -1,5 +1,4 @@
 import { render, screen } from 'test-utils';
-import userEvent from '@testing-library/user-event';
 import * as api from 'helpers/api';
 import data from 'mocks/data';
 import Country from 'models/Country';

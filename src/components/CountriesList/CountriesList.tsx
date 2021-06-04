@@ -27,8 +27,6 @@ const CountriesList: React.FC = () => {
     offset + Pagination.PageSize
   );
   const pageCount = Math.ceil(filteredCountries.length / Pagination.PageSize);
-  const shouldPaginationBeShown =
-    filteredCountries.length > Pagination.PageSize;
 
   const handlePageClick = ({ selected }: any): void => {
     setCurrentPage(selected);
@@ -41,7 +39,7 @@ const CountriesList: React.FC = () => {
           return <CountryCard key={country.alpha3Code} {...country} />;
         })}
       </Wrapper>
-      {shouldPaginationBeShown && (
+      {filteredCountries.length > Pagination.PageSize && (
         <ReactPaginate
           previousLabel={<FaChevronLeft />}
           nextLabel={<FaChevronRight />}

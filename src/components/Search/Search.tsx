@@ -4,11 +4,7 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import { InputWrapper } from './Search.styles';
 import { searchQueryState } from 'store';
 
-type InputProps = {
-  placeholder: string;
-};
-
-const Search = ({ placeholder }: InputProps) => {
+const Search = ({ placeholder }: { placeholder: string }) => {
   const [searchQuery, setSearchQuery] = useRecoilState(searchQueryState);
   return (
     <InputWrapper>
