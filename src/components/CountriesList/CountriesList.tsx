@@ -17,6 +17,10 @@ const CountriesList: React.FC = () => {
     window.scrollTo(0, 0);
   }, [currentPage]);
 
+  const handlePageClick = ({ selected }: any): void => {
+    setCurrentPage(selected);
+  };
+
   if (!filteredCountries.length) {
     return <Notification>No results found</Notification>;
   }
@@ -27,10 +31,6 @@ const CountriesList: React.FC = () => {
     offset + Pagination.PageSize
   );
   const pageCount = Math.ceil(filteredCountries.length / Pagination.PageSize);
-
-  const handlePageClick = ({ selected }: any): void => {
-    setCurrentPage(selected);
-  };
 
   return (
     <>
