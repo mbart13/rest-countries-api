@@ -8,7 +8,7 @@ import { GlobalStyles } from 'styles/GlobalStyles';
 import { Wrapper } from './App.styles';
 import Home from 'pages/Home/Home';
 import CountryDetails from 'pages/CountryDetails/CountryDetails';
-import useDarkMode from 'hooks/UseDarkMode';
+import useDarkMode from 'hooks/useDarkMode';
 import Spinner from 'components/Spinner';
 import { regionFilterState, searchQueryState, currentPageState } from 'store';
 import ErrorFallback from 'components/ErrorFallback';
