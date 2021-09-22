@@ -8,14 +8,14 @@ const CountryCard: React.FC<Country> = ({
   population,
   region,
   capital,
-  flag,
+  flags,
   alpha3Code,
 }) => {
   return (
     <Container as="li" data-testid="country">
       <Link to={`/${alpha3Code}`} style={{ textDecoration: 'none' }}>
         <FlagWrapper>
-          <img src={flag} alt="" aria-hidden="true" />
+          <img src={flags[0]} alt="" aria-hidden="true" />
         </FlagWrapper>
         <CountryInfo>
           <h2>{name}</h2>

@@ -30,7 +30,7 @@ const CountryDetails: React.FC = () => {
       </Button>
       <CountryWrapper as="article">
         <Flag>
-          <img src={country?.flag} alt={`flag of ${country?.name}`} />
+          <img src={country?.flags[0]} alt={`flag of ${country?.name}`} />
         </Flag>
         <StyledCountryDetails>
           <h1>{country?.name}</h1>
@@ -64,16 +64,16 @@ const CountryDetails: React.FC = () => {
               </li>
               <li>
                 <span>Currencies: </span>
-                {country?.currencies.map(currency => currency.name).join(', ')}
+                {country?.currencies?.map(currency => currency.name).join(', ')}
               </li>
               <li>
                 <span>Languages: </span>
-                {country?.languages.map(language => language.name).join(', ')}
+                {country?.languages?.map(language => language.name).join(', ')}
               </li>
             </ul>
           </CountryInfo>
           <h2>Border Countries: </h2>
-          {!!country?.borders.length ? (
+          {!!country?.borders?.length ? (
             <BorderingCountries>
               {country?.borders.map(border => {
                 return (

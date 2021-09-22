@@ -5,7 +5,7 @@ type Country = {
   alpha3Code: string;
   name: string;
   nativeName: string;
-  flag: string;
+  flags: string[];
   population: number;
   region: string;
   subregion: string;
