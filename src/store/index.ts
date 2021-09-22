@@ -37,7 +37,7 @@ export const filteredByRegionCountriesState = selector({
     if (filter === Regions.All) {
       return countries;
     }
-    return countries.filter(country => country.region === filter);
+    return countries.filter(country => country.continent === filter);
   },
 });
 

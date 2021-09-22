@@ -8,6 +8,7 @@ type Country = {
   flags: string[];
   population: number;
   region: string;
+  continent: string;
   subregion: string;
   capital: string;
   topLevelDomain: string;
