@@ -21,8 +21,4 @@ describe('Search component', () => {
     expect(screen.getByRole('textbox')).toHaveValue(searchPhrase);
   });
 
-  // it('calls setSearchQuery prop 6 times', () => {
-  //   userEvent.type(screen.getByRole('textbox'), searchPhrase);
-  //   expect(mockSearchQueryHandler).toHaveBeenCalledTimes(searchPhrase.length);
-  // });
 });
