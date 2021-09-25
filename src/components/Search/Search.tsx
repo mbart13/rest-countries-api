@@ -17,6 +17,7 @@ const Search = ({ placeholder }: { placeholder: string }) => {
       clearTimeout(id);
     };
   }, [input, setSearchQuery]);
+
   return (
     <InputWrapper>
       <AiOutlineSearch />

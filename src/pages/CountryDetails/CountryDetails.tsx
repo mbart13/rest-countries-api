@@ -38,23 +38,25 @@ const CountryDetails: React.FC = () => {
             <ul>
               <li>
                 <span>Native Name: </span>
-                {country?.nativeName}
+                {country?.nativeName ? country?.nativeName : 'n/a'}
               </li>
               <li>
                 <span>Population: </span>
-                {country?.population.toLocaleString()}
+                {country?.population
+                  ? country?.population.toLocaleString()
+                  : 'n/a'}
+              </li>
+              <li>
+                <span>Continent: </span>
+                {country?.continent ? country?.continent : 'n/a'}
               </li>
               <li>
                 <span>Region: </span>
-                {country?.region}
-              </li>
-              <li>
-                <span>Sub region: </span>
-                {country?.subregion}
+                {country?.region ? country?.region : 'n/a'}
               </li>
               <li>
                 <span>Capital: </span>
-                {country?.capital}
+                {country?.capital ? country?.capital : 'n/a'}
               </li>
             </ul>
             <ul>
@@ -64,11 +66,17 @@ const CountryDetails: React.FC = () => {
               </li>
               <li>
                 <span>Currencies: </span>
-                {country?.currencies?.map(currency => currency.name).join(', ')}
+                {country?.currencies
+                  ? country?.currencies
+                      .map(currency => currency.name)
+                      .join(', ')
+                  : 'n/a'}
               </li>
               <li>
                 <span>Languages: </span>
-                {country?.languages?.map(language => language.name).join(', ')}
+                {country?.languages
+                  ? country?.languages.map(language => language.name).join(', ')
+                  : 'n/a'}
               </li>
             </ul>
           </CountryInfo>
