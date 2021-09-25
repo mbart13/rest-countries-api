@@ -38,7 +38,7 @@ const CountryDetails: React.FC = () => {
             <ul>
               <li>
                 <span>Native Name: </span>
-                {country?.nativeName ? country?.nativeName : 'n/a'}
+                {country?.nativeName || 'n/a'}
               </li>
               <li>
                 <span>Population: </span>
@@ -48,15 +48,15 @@ const CountryDetails: React.FC = () => {
               </li>
               <li>
                 <span>Continent: </span>
-                {country?.continent ? country?.continent : 'n/a'}
+                {country?.continent || 'n/a'}
               </li>
               <li>
                 <span>Region: </span>
-                {country?.region ? country?.region : 'n/a'}
+                {country?.region || 'n/a'}
               </li>
               <li>
                 <span>Capital: </span>
-                {country?.capital ? country?.capital : 'n/a'}
+                {country?.capital || 'n/a'}
               </li>
             </ul>
             <ul>
