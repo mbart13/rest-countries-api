@@ -36,7 +36,7 @@ I added pagination as an extra feature
 
 ### Links
 
-[Live Site URL](https://rest-countries-api-mbart13.vercel.app)
+[Live Site URL](https://countries-of-the-world-mbart13.vercel.app/)
 
 ### Setup
 
