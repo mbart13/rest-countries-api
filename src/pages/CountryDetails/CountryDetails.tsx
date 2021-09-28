@@ -47,12 +47,12 @@ const CountryDetails: React.FC = () => {
                   : 'n/a'}
               </li>
               <li>
-                <span>Continent: </span>
-                {country?.continent || 'n/a'}
-              </li>
-              <li>
                 <span>Region: </span>
                 {country?.region || 'n/a'}
+              </li>
+              <li>
+                <span>Subregion: </span>
+                {country?.subregion || 'n/a'}
               </li>
               <li>
                 <span>Capital: </span>
