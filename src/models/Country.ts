@@ -6,6 +6,7 @@ type Country = {
   name: string;
   nativeName: string;
   flags: string[];
+  flag: string;
   population: number;
   region: string;
   continent: string;

@@ -30,7 +30,7 @@ const CountryDetails: React.FC = () => {
       </Button>
       <CountryWrapper as="article">
         <Flag>
-          <img src={country?.flags[0]} alt={`flag of ${country?.name}`} />
+          <img src={country?.flag} alt={`flag of ${country?.name}`} />
         </Flag>
         <StyledCountryDetails>
           <h1>{country?.name}</h1>
